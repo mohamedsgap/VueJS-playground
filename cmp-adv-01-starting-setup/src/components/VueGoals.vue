@@ -6,14 +6,12 @@
 
 <script>
 export default {
-    data() {
-        return {
-        goals: ['learn Vue', 'master vue']
-    }
-}
-}
+  data() {
+    return {
+      goals: ["learn Vue", "master vue"],
+    };
+  },
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

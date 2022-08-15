@@ -6,16 +6,16 @@
         <base-badge :type="role" :caption="role.toUpperCase()"></base-badge>
       </template>
       <template #default>
-      <p>{{ infoText }}</p>
+        <p>{{ infoText }}</p>
       </template>
     </base-card>
   </section>
 </template>
 
 <script>
-import BaseCard from './BaseCard.vue';
+import BaseCard from "./BaseCard.vue";
 export default {
   components: { BaseCard },
-  props: ['fullName', 'infoText', 'role'],
+  props: ["fullName", "infoText", "role"],
 };
 </script>

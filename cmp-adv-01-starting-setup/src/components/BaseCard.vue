@@ -1,17 +1,16 @@
 <template>
   <div>
     <header>
-        <slot name="header">
-            <h2>the default</h2>
-        </slot>
+      <slot name="header">
+        <h2>the default</h2>
+      </slot>
     </header>
     <slot></slot>
   </div>
 </template>
 
 <script>
-export default {
-}
+export default {};
 </script>
 <style scoped>
 div {
