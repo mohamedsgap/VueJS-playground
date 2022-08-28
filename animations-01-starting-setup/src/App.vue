@@ -4,7 +4,16 @@
     <button @click="animateBlock">Animate</button>
   </div>
   <div class="container">
-    <transition name="para" enter-to-class="className...">
+    <transition
+      name="para"
+      enter-to-class="className..."
+      @before-enter="transitionEvetns"
+      @before-leave="transitionEvetns"
+      @after-enter="transitionEvetns"
+      @after-leave="transitionEvetns"
+      @enter="transitionEvetns"
+      @leave="transitionEvetns"
+    >
       <p v-if="toggledParagraph">this a test paragraph</p>
     </transition>
     <button @click="toggleParagraph">Toggle Paragrapgh</button>
@@ -15,6 +24,11 @@
   </base-modal>
   <div class="container">
     <button @click="showDialog">Show Dialog</button>
+  </div>
+  <div class="container">
+    <transition name="trasition name" mode="out-in">
+      <!-- the element -->
+    </transition>
   </div>
 </template>
 
