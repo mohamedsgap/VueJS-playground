@@ -1,10 +1,16 @@
 <template>
+  <router-view v-slot="slotProps">
+    <transition name="route" mode="out-in">
+      <component :is="slotProps.Component"></component>
+    </transition>
+  </router-view>
   <div class="container">
     <div class="block" :class="{ animate: animatedBlock }"></div>
     <button @click="animateBlock">Animate</button>
   </div>
   <div class="container">
-    <transition
+    <!-- <transition
+      :css="false"
       name="para"
       enter-to-class="className..."
       @before-enter="transitionEvetns"
@@ -13,7 +19,11 @@
       @after-leave="transitionEvetns"
       @enter="transitionEvetns"
       @leave="transitionEvetns"
+      these hooks help building animation in JS
     >
+      <p v-if="toggledParagraph">this a test paragraph</p>
+    </transition> -->
+    <transition name="para" enter-to-class="className...">
       <p v-if="toggledParagraph">this a test paragraph</p>
     </transition>
     <button @click="toggleParagraph">Toggle Paragrapgh</button>
@@ -25,14 +35,18 @@
   <div class="container">
     <button @click="showDialog">Show Dialog</button>
   </div>
-  <div class="container">
-    <transition name="trasition name" mode="out-in">
-      <!-- the element -->
+  <!-- <div class="container">
+   <transition name="trasition name" mode="out-in">
+      <p>This is a test paragraph transition!</p>
     </transition>
+  </div> -->
+  <div class="container">
+    <list-data></list-data>
   </div>
 </template>
 
 <script>
+import ListData from './components/ListData.vue';
 export default {
   data() {
     return {
@@ -55,6 +69,7 @@ export default {
       this.toggledParagraph = !this.toggledParagraph;
     },
   },
+  components: { ListData },
 };
 </script>
 
@@ -144,6 +159,16 @@ button:active {
 
 .modal-enter-active {
   animation: modal 0.3s ease-out;
+}
+
+.route-enter-from {
+  animation: slide-scale 0.3s ease-out;
+}
+.route-enter-active {
+  animation: slide-scale 0.3s ease-out;
+}
+.route-enter-to {
+  animation: modal 0.3s ease-in;
 }
 
 @keyframes modal {
